@@ -9,7 +9,16 @@
 * [Updates](#updates)
 
 ## Updates
-
+### 4/22/2018
+- 3c9e4ba feat: Add endgame dialog to the game and rewrite README.md
+### 4/21/2018
+- 4df3a82 feat: Enemy's update method now randomly positions
+                bugs in one of three rows after reset
+- f1b7171 feat: Instantiate objects
+- 1ed29b4 feat: Finish update, render and handleInput methods for Player class
+- 5509478 feat: Finish Enemy function and Add Player function
+- c4b0d5a feat: Add variables to Enemy function
+- c1db072 feat: Initial commit
 
 ## Instructions
 
