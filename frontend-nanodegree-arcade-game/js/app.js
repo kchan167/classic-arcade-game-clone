@@ -18,11 +18,19 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    // Create an array to store 3 possible y position
+    var enemyY = [60, 140, 220];
+    // Create a random index for array enemyY
+    function getRndIndex(arr) {
+        return Math.floor(Math.random() * arr.length);
+    }
+
     this.x += this.speed * dt;
     // Reset enemy's position and speed after enemies pass
     // over canvas.
     if (this.x > 505) {
         this.x = -100;
+        this.y = enemyY[getRndIndex(enemyY)]; // Randomly set y position
         this.speed = 100 + Math.floor(Math.random() * 505);
     }
     // Reset player position after collision
