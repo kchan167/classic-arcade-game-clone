@@ -26,8 +26,8 @@ Enemy.prototype.update = function(dt) {
         this.speed = 100 + Math.floor(Math.randon() * 505);
     }
     // Reset player position after collision
-    if( this.x + 60 > player.x && this.x < player.x + 30 &&
-        this.y + 25 > player.y && this.y < player.y + 30) {
+    if( this.x + 70 > player.x && this.x < player.x + 60 &&
+        this.y === player.y) {
             player.x = 200;
             player.y = 380;
         }
@@ -70,10 +70,24 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.handleInput = function(keyInput) {
+    switch (keyInput) {
+        // player moves horizontally +/- 100;
+        case 'left':
+            this.x -= this.speed + 50;
+        case 'right':
+            this.x += this.speed + 50;
+        case 'up':
+            this.y -= this.speed + 30;
+        case 'down':
+            this.y += this.speed + 30;
+            break;
+    }
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
 
 
 // This listens for key presses and sends the keys to your
