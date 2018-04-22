@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     // over canvas.
     if (this.x > 505) {
         this.x = -100;
-        this.speed = 100 + Math.floor(Math.randon() * 505);
+        this.speed = 100 + Math.floor(Math.random() * 505);
     }
     // Reset player position after collision
     if( this.x + 70 > player.x && this.x < player.x + 60 &&
@@ -75,10 +75,13 @@ Player.prototype.handleInput = function(keyInput) {
         // player moves horizontally +/- 100;
         case 'left':
             this.x -= this.speed + 50;
+            break;
         case 'right':
             this.x += this.speed + 50;
+            break;
         case 'up':
             this.y -= this.speed + 30;
+            break;
         case 'down':
             this.y += this.speed + 30;
             break;
@@ -88,7 +91,14 @@ Player.prototype.handleInput = function(keyInput) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+var allEnemies = [];
 
+var enemyY = [60, 140, 220];
+var player = new Player();
+enemyY.forEach(function(y) {
+    var enemy = new Enemy(0, y, 100 + Math.floor(Math.random() * 505));
+    allEnemies.push(enemy);
+});
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
